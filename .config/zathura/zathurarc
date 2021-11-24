@@ -1,0 +1,4 @@
+set recolor-lightcolor \#24283b
+set default-bg \#24283b
+set recolor-keephue
+set highlight-active-color \#88c0d0
