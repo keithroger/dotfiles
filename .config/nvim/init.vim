@@ -6,7 +6,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 " Plugins
 " Run :PlugInstall to download plugins
 " Update with :PlugUpdate
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 
 " vim ranger
 "Plug 'rbgrouleff/bclose.vim'
@@ -19,13 +19,13 @@ call plug#begin('~/.vim/plugged')
 " Plug 'jiangmiao/auto-pairs'
 
 " syntax language packs
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " status bar
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 " comment out blocks
-Plug 'KarimElghamry/vim-auto-comment'
+" Plug 'KarimElghamry/vim-auto-comment'
 
 " ale linting
 " Plug 'dense-analysis/ale'
@@ -42,7 +42,7 @@ Plug 'KarimElghamry/vim-auto-comment'
 " mardown preview
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-call plug#end()
+" call plug#end()
 
 " lightline
 let g:lightline = {

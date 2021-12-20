@@ -37,8 +37,6 @@ require 'paq' {
     'iamcco/markdown-preview.nvim'; -- markdown preview
 
     'karb94/neoscroll.nvim'; -- smooth scrolling
-
-    'norcalli/nvim-colorizer.lua'; -- hex colors
 }
 
 
@@ -95,6 +93,3 @@ vim.g.mkdp_auto_start = 1
 
 -- neoscroll.nvim
 require('neoscroll').setup()
-
--- nvim-colorizer
-require('colorizer').setup()
