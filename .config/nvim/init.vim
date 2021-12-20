@@ -65,30 +65,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " vim esc in terminal
 tnoremap<Esc> <C-\><C-n>
 
-" latex
-let g:vimtex_view_method = 'zathura'
-
 " remove trailing spaces
 autocmd BufWritePre *.py :%s/\s\+$//e
-
-" vim-jukit
-let g:jukit_pdf_viewer = 'zathura'
-let g:jukit_html_viewer = 'firefox'
-
-" lightline
-set laststatus=2
-let g:lightline = {'colorscheme' : 'tokyonight'}
-
 " tokyonight colorscheme
 set termguicolors
 
-" lsp stuff
-function Refresh()
-	lua vim.lsp.stop_client(vim.lsp.get_active_clients())
- 	sleep 300m
-    write
-	edit
-endfunction
-
-command RefreshLSP call Refresh()
-nnoremap <leader>w :RefreshLSP<CR>
