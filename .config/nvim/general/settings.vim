@@ -7,7 +7,7 @@ nnoremap <SPACE> <Nop>
 " inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 " inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-syntax enable                           " Enables syntax highlighing
+"syntax enable                           " Enables syntax highlighing
 set omnifunc
 set shortmess+=c
 " set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -61,9 +61,6 @@ set laststatus=2
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
-" Write files as root
-cmap w!!  !sudo tee %
-
 " Python Configuration
 au BufNewFile,BufRead *.py
     \ set expandtab       |" replace tabs with spaces
@@ -72,17 +69,3 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4
     \ set shiftwidth=4
 
-" Ale Linters
-let g:ale_linters = {
-      \   'python': ['flake8', 'autopep8', 'pylint'],
-      \   'javascript': ['eslint'],
-      \}
-
-" let g:ale_fixers = {
-"       \    'python': ['yapf'],
-"       \}
-
-let g:ale_fix_on_save = 1
-
-let g:ale_sign_column_always = 1
-let g:ale_lint_on_text_changed = 1

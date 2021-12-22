@@ -1,5 +1,4 @@
 lua require 'init'
-" set packpath=/usr/local/share/nvim/runtime,~/.local/share/nvim/site
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/keys/mappings.vim
 
@@ -44,29 +43,15 @@ source $HOME/.config/nvim/keys/mappings.vim
 
 " call plug#end()
 
-" lightline
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
 " python support
-let g:python3_host_prog = '/home/kro/anaconda3/envs/neovim/bin/python3'
+" let g:python3_host_prog = '/home/kro/anaconda3/envs/neovim/bin/python3'
 
 " remove auto comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
-" vim esc in terminal
-tnoremap<Esc> <C-\><C-n>
-
 " remove trailing spaces
 autocmd BufWritePre *.py :%s/\s\+$//e
 " tokyonight colorscheme
-set termguicolors
+" set termguicolors
 
