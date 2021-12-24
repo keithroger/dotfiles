@@ -44,7 +44,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 " call plug#end()
 
 " python support
-" let g:python3_host_prog = '/home/kro/anaconda3/envs/neovim/bin/python3'
+let g:python3_host_prog = '/bin/python3.10'
 
 " remove auto comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
