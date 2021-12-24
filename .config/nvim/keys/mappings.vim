@@ -3,9 +3,6 @@
 " inoremap <expr> <c-k> ("\<C-p>")
 
 
-" Ale
-nmap <F10> :ALEFix<CR>
-
 " Use alt + hjkl to resize windows
 " nnoremap <M-j>    :resize -2<CR>
 " nnoremap <M-k>    :resize +2<CR>

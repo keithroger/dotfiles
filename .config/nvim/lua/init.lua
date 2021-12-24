@@ -1,7 +1,4 @@
 -- make everything in one file for now and split it up when its done
--- stuff to add:
-    -- debugger
-    -- galaxy line
 
 -- map keys function
 local function map(mode, lhs, rhs, opts)
@@ -41,36 +38,7 @@ require('packer').startup(function()
     use 'karb94/neoscroll.nvim'
 end)
 
--- key bindings
 vim.g.mapleader = ' '
-
-
--- plugs
--- require 'paq' {
---     'savq/paq-nvim';
--- 
---     'neovim/nvim-lspconfig'; -- lsp
--- --    'hrsh7th/nvim-compe'; -- completion
--- 
---     'nvim-lua/popup.nvim'; -- dependency
---     'nvim-lua/plenary.nvim'; -- dependency
---     'nvim-telescope/telescope.nvim'; -- fuzzy finder
--- 
--- --    'jghauser/kitty-runner.nvim'; -- repl
--- 
---     'folke/tokyonight.nvim'; -- colorscheme
--- 
---     'kevinhwang91/rnvimr'; -- ranger
--- 
---     'windwp/nvim-autopairs'; -- autoclose ({'""'})
--- 
---     'farfanoide/vim-kivy'; -- kv file systax highlighting
--- 
---     'iamcco/markdown-preview.nvim'; -- markdown preview
--- 
---     'karb94/neoscroll.nvim'; -- smooth scrolling
--- }
-
 
 -- lsp
 local lsp = require('lspconfig')
