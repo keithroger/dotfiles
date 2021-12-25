@@ -41,8 +41,6 @@ end)
 vim.g.mapleader = ' '
 
 -- lsp
-local lsp = require('lspconfig')
-lsp.pylsp.setup{}
 map('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', '<leader>c', '<cmd>lua vim.lsp.buf.formatting()<CR>')
@@ -50,7 +48,7 @@ map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 
 -- lsp
-local servers = { 'gopls', 'golangci_lint_ls' }
+local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls'}
 for _, lsp in ipairs(servers) do
   require'lspconfig'[lsp].setup {
     flags = {
@@ -107,7 +105,6 @@ require('nvim-autopairs').setup()
 require('neoscroll').setup()
 
 -- lualine
--- TODO create a custom color theme
 require('lualine').setup {
     options = {
         icons_enable = false,
