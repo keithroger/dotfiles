@@ -48,7 +48,7 @@ map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 
 -- lsp
-local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls'}
+local servers = { 'gopls', 'golangci_lint_ls', 'pylsp'}
 for _, lsp in ipairs(servers) do
   require'lspconfig'[lsp].setup {
     flags = {
@@ -73,7 +73,7 @@ cmp.setup({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<tab>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
