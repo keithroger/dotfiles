@@ -36,6 +36,8 @@ require('packer').startup(function()
     use 'farfanoide/vim-kivy'
 
     use 'karb94/neoscroll.nvim'
+
+    use 'norcalli/nvim-colorizer.lua'
 end)
 
 vim.g.mapleader = ' '
