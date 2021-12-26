@@ -24,8 +24,7 @@ background-alt = #364A82
 foreground = #bb9af7
 foreground-alt = #bb9af7
 primary = #bb9af7
-secondary = #e60053
-alert = #60053
+secondary = #f7768e
 
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -51,7 +50,7 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Hack:size=10;1
+font-0 = Firacode:size=10;1
 # font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 # font-2 = siji:pixelsize=10;1
 
@@ -375,15 +374,20 @@ format-full-prefix-foreground = ${colors.foreground-alt}
 # format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = BAT:
-ramp-capacity-0-foreground = #f7768e
+ramp-capacity-0-foreground =
+ramp-capacity-0-underline = ${colors.secondary}
 ramp-capacity-1 = BAT:
 ramp-capacity-1-foreground = 
+ramp-capacity-1-underline = 
 ramp-capacity-2 = BAT:
 ramp-capacity-2-foreground = 
+ramp-capacity-2-underline =
 ramp-capacity-3 = BAT:
 ramp-capacity-3-foreground = 
+ramp-capacity-3-underline =
 ramp-capacity-4 = BAT:
 ramp-capacity-4-foreground = 
+ramp-capacity-underline =
 
 animation-charging-0 = 
 animation-charging-1 = 
