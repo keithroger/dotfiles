@@ -1,4 +1,8 @@
 -- make everything in one file for now and split it up when its done
+-- TODO make files for:
+-- --- functions
+-- --- keymaps
+--
 
 -- map keys function
 local function map(mode, lhs, rhs, opts)
@@ -101,7 +105,6 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 require('nvim-autopairs').setup()
-
 
 -- neoscroll.nvim
 require('neoscroll').setup()
