@@ -1,18 +1,58 @@
 #!/bin/bash
-# displays the size of a file passed in as a 1st argument
 
-# exit if file not found
-if ! [ -f $1 ]; then
-    echo "$1 not found"
+# prints help documenation
+function usage() {
+    cat <<EOF
+    Usage:
+    $0 [-bmkg]  [ file ]
+    -b    Bytes
+    -m    MegaBytes
+    -k    KiloBytes
+    -g    GigaBytes
+EOF
+    exit 1
+}
+
+
+# prints size converted into given unit
+function printSize () {
+    filesize="$(wc --bytes $3 | awk '{print $1}')"
+    echo -e "$( bc <<<"scale=3; $filesize / $2" ) $1"
+}
+
+
+# print usage in various cases
+if [[ $# -eq 0 || $1 == "-h" || $1 == "--help" ]]; then
+    usage
+fi
+
+# get the last argument and check if it is a valid file
+filename="${@: -1}"
+if ! [ -f $filename ]; then
+    echo "Enter a valid file path"
     exit 1
 fi
 
-# get file size from first argument
-filesize="$(wc --bytes $1 | awk '{print $1}')"
-
-# loop over different size formats
-for i in "Bytes\t 1" "KiloBytes 1024" "MegaBytes 1048576" "GigaBytes 1073741824"
-do
-    set -- $i # make pairs into arguments
-    echo -e "$1\t$( bc <<<"scale=3; $filesize / $2" )"
+# cycle through arguments
+while getopts "bmkg" opt; do
+    case "${opt}" in 
+        b)
+            printSize "Bytes" 1 $filename
+            ;;
+        k)
+            printSize "KiloBytes" 1024 $filename
+            ;;
+        m)
+            printSize "MegaBytes" 1048576 $filename
+            ;;
+        g)
+            printSize "GigaBytes" 1073741824 $filename
+            ;;
+        h)
+            usage
+            ;;
+        *)
+            echo "Invalid option"
+            ;;
+    esac
 done
