@@ -2,14 +2,24 @@
 #
 # backs up linux filesystem to a .img file
 
+# TODO add optional first argument for a directory to write
+
+# check if script is running as root
+if [ "$EUID" -ne 0 ]
+  then echo "Command must be run as root"
+  exit
+fi
+
 echo "Starting backup..."
 
-destination="/home/kro/backup"
+destination="/home/kro/backup/$(date "+%F_%H%M")"
 
 echo "Backing up root file system to $destination"
 
 
 rsync -aAHXv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/kro/Downloads/","/home/kro/backup/*"} / $destination
+
+# TODO delete last backup if more than 5 exist
 
 # TODO show the size of the finished backup
 
