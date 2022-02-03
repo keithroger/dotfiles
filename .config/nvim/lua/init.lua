@@ -54,7 +54,7 @@ map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 
 -- lsp
-local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls'}
+local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls', 'eslint'}
 for _, lsp in ipairs(servers) do
   require'lspconfig'[lsp].setup {
     flags = {
