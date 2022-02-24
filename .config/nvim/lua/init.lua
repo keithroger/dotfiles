@@ -54,7 +54,10 @@ map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 
 -- lsp
-local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls', 'eslint'}
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
+local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls' }
 for _, lsp in ipairs(servers) do
   require'lspconfig'[lsp].setup {
     flags = {
@@ -62,6 +65,11 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+require'lspconfig'.denols.setup{
+    init_options = {
+        lint = true,
+    }
+}
 
 -- nvim-compe
 vim.o.completeopt = "menuone,noselect"
