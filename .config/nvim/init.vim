@@ -49,7 +49,6 @@ let g:python3_host_prog = '/bin/python3.10'
 " remove auto comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-
 " remove trailing spaces
 autocmd BufWritePre *.py :%s/\s\+$//e
 " tokyonight colorscheme
