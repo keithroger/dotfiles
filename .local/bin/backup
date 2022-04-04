@@ -2,7 +2,9 @@
 #
 # backs up linux filesystem to a .img file
 
-# TODO add optional first argument for a directory to write
+# TODO add -list option
+# TODO add -restore [backup number]
+# TODO show the size of the finished backup
 
 # check if script is running as root
 if [ "$EUID" -ne 0 ]
@@ -19,9 +21,3 @@ echo "Backing up root file system to $destination"
 
 rsync -aAHXv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/kro/Downloads/","/home/kro/backup/*"} / $destination
 
-# TODO delete last backup if more than 5 exist
-
-# TODO show the size of the finished backup
-
-# TODO write how to restore files
-# 
