@@ -97,10 +97,11 @@ cmp.setup({
     })
 })
 
--- telescope
+-- find files
 map('n', '<leader>f', '<cmd> lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>')
+-- grep files
 map('n', '<leader>g', '<cmd> lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>')
--- all refs
+-- all referances
 map('n', '<leader>a', '<cmd> lua require("telescope.builtin").lsp_references(require("telescope.themes").get_dropdown({}))<cr>')
 -- suggestion
 map('n',  '<leader>s', '<cmd> lua require("telescope.builtin").diagnostics(require("telescope.themes").get_dropdown({}))<cr>')
