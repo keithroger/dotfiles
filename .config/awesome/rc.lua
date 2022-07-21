@@ -8,6 +8,8 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 -- ram
 local ram_widget = require("widgets.ram_widget")
+-- cpu
+local cpu_widget = require("widgets.cpu_widget")
 
 -- Standard awesome library
 local gears = require("gears")
@@ -223,6 +225,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            cpu_widget,
             ram_widget,
             volume_widget{ widget_type = 'icon', device = 'default'},
             battery_widget{ show_current_level=true },
