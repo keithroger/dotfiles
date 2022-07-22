@@ -232,7 +232,6 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             cpu_widget,
             ram_widget,
-            volume_widget{ widget_type = 'icon', device = 'default'},
             battery_widget,
             wibox.widget.systray(),
             -- mytextclock,
