@@ -11,8 +11,6 @@ pcall(require, "luarocks.loader")
 
 -- battery widget
 local battery_widget = require("widgets.battery")
--- volume widget
-local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 -- ram
 local ram_widget = require("widgets.ram_widget")
 -- cpu
@@ -234,7 +232,6 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             cpu_widget,
             ram_widget,
-            volume_widget{ widget_type = 'icon', device = 'default'},
             battery_widget,
             wibox.widget.systray(),
             -- mytextclock,
