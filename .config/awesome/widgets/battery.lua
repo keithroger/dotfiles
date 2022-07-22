@@ -1,9 +1,12 @@
 local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
+local beautiful = require("beautiful")
 
 -- TODO add red color when low
 -- TODO add icon instead of label
+
+beautiful.init("/home/kro/.config/awesome/theme.lua")
 
 local battery_widget = wibox.widget {
     {
@@ -16,8 +19,10 @@ local battery_widget = wibox.widget {
         max_value = 100,
         value = 90,
         paddings = 1,
-        color = "#333",
-        background_color = "#999",
+        color = beautiful.bg_focus,
+        background_color = beautiful.bg_normal,
+        border_color = beautiful.bg_focus,
+        border_width = 1,
         id = "batterybar",
         margins = 6,
         paddings = 2,
