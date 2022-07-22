@@ -1,9 +1,16 @@
+-- TODO add bars for volume, temp, battery
+-- TODO add simple layout for date and icon
+-- TODO add icons
+-- TODO add outline to bars
+-- TODO put bars in their own file
+-- TODO remove background
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
 -- battery widget
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local battery_widget = require("widgets.battery")
 -- volume widget
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 -- ram
@@ -228,9 +235,9 @@ awful.screen.connect_for_each_screen(function(s)
             cpu_widget,
             ram_widget,
             volume_widget{ widget_type = 'icon', device = 'default'},
-            battery_widget{ show_current_level=true },
+            battery_widget,
             wibox.widget.systray(),
-            mytextclock,
+            -- mytextclock,
             -- s.mylayoutbox,
         },
     }
