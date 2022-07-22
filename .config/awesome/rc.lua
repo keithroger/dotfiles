@@ -60,6 +60,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/kro/.config/awesome/theme.lua")
+gears.wallpaper.set("#24283b")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -121,7 +122,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("%a %Y/%m/%d %I:%M%p")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -210,7 +211,8 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
+
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -229,6 +231,7 @@ awful.screen.connect_for_each_screen(function(s)
         -- s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            spacing = 20,
             mykeyboardlayout,
             cpu_widget,
             ram_widget,
