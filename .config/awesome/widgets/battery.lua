@@ -42,7 +42,7 @@ gears.timer {
     autostart = true,
     callback = function () 
         awful.spawn.easy_async(
-            {"sh", "-c", "acpi -b | awk '{print substr($4, 1, length($4)-2)}'"},
+            {"sh", "-c", "acpi -b | awk '{print $4}' | egrep -o '[0-9]+'"},
             function(out)
                 battery_widget:set_value(out)
             end
