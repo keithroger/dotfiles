@@ -13,3 +13,5 @@ export PATH="$PATH:/bin"
 export PATH="$PATH:/home/kro/.local/bin"
 alias config='/usr/bin/git --git-dir=/home/kro/.cfg/ --work-tree=/home/kro'
 
+export GOPATH=/home/kro/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
