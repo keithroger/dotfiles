@@ -10,30 +10,15 @@ beautiful.init("/home/kro/.config/awesome/theme.lua")
 
 local battery_widget = wibox.widget {
     {
-        id = "battery_textbox",
-        text = "BAT:",
+        id = "battery_label",
+        text = "BAT: ",
         widget = wibox.widget.textbox,
     },
     {
-        min_value = 0,
-        max_value = 100,
-        value = 90,
-        paddings = 1,
-        color = beautiful.bg_focus,
-        background_color = beautiful.bg_normal,
-        border_color = beautiful.bg_focus,
-        border_width = 1,
-        id = "batterybar",
-        margins = 6,
-        paddings = 2,
-        forced_width = 44,
-        bar_shape = gears.shape.rectangle,
-        widget = wibox.widget.progressbar,
+        id = "battery_percent",
+        widget = wibox.widget.textbox,
     },
     layout = wibox.layout.fixed.horizontal,
-    set_value = function(self, val)
-        self.batterybar.value = tonumber(val)
-    end,
 }
 
 gears.timer {
@@ -42,9 +27,10 @@ gears.timer {
     autostart = true,
     callback = function () 
         awful.spawn.easy_async(
-            {"sh", "-c", "acpi -b | egrep -o '[0-9]+%' | awk '{print substr($1, 1, length($1)-1)}'"},
+            -- {"sh", "-c", "acpi -b | egrep -o '[0-9]+%' | awk '{print substr($1, 1, length($1)-1)}'"},
+            {"sh", "-c", "acpi -b | egrep -o '[0-9]+%' "},
             function(out)
-                battery_widget:set_value(out)
+                battery_widget.battery_percent.text = out
             end
         )
     end

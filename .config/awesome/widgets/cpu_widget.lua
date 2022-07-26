@@ -10,41 +10,26 @@ beautiful.init("/home/kro/.config/awesome/theme.lua")
 
 local cpu_widget = wibox.widget {
     {
-        id = "cpu_textbox",
-        text = "CPU:",
+        id = "cpu_label",
+        text = "CPU: ",
         widget = wibox.widget.textbox,
     },
     {
-        min_value = 0,
-        max_value = 100,
-        value = 90,
-        paddings = 1,
-        color = beautiful.bg_focus,
-        background_color = beautiful.bg_normal,
-        border_color = beautiful.bg_focus,
-        border_width = 1,
-        id = "cpubar",
-        margins = 6,
-        paddings = 2,
-        forced_width = 44,
-        bar_shape = gears.shape.rectangle,
-        widget = wibox.widget.progressbar,
+        id = "cpu_percent",
+        widget = wibox.widget.textbox,
     },
     layout = wibox.layout.fixed.horizontal,
-    set_value = function(self, val)
-        self.cpubar.value = tonumber(val)
-    end,
 }
 
 gears.timer {
-    timeout = 1,
+    timeout = 2,
     call_now = true,
     autostart = true,
     callback = function () 
         awful.spawn.easy_async(
-            {"sh", "-c", "mpstat | awk 'END{print 100-$NF}'"},
+            {"sh", "-c", "awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t;} else print int(($2+$4-u1) * 100 / (t-t1)); }' <(grep 'cpu ' /proc/stat) <(sleep 1;grep 'cpu ' /proc/stat) | awk '{ printf(\"%02d%\", $1) }' "},
             function(out)
-                cpu_widget:set_value(out)
+                cpu_widget.cpu_percent.text = out
             end
         )
     end

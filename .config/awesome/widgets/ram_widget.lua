@@ -10,25 +10,13 @@ beautiful.init("/home/kro/.config/awesome/theme.lua")
 
 local ram_widget = wibox.widget {
     {
-        id = "ram_textbox",
-        text = "RAM:",
+        id = "ram_label",
+        text = "RAM: ",
         widget = wibox.widget.textbox,
     },
     {
-        min_value = 0,
-        max_value = 100,
-        value = 90,
-        paddings = 1,
-        color = beautiful.bg_focus,
-        background_color = beautiful.bg_normal,
-        border_color = beautiful.bg_focus,
-        border_width = 1,
-        id = "rambar",
-        margins = 6,
-        paddings = 2,
-        forced_width = 44,
-        bar_shape = gears.shape.rectangle,
-        widget = wibox.widget.progressbar,
+        id = "ram_percent",
+        widget = wibox.widget.textbox,
     },
     layout = wibox.layout.fixed.horizontal,
     set_value = function(self, val)
@@ -42,9 +30,9 @@ gears.timer {
     autostart = true,
     callback = function () 
         awful.spawn.easy_async(
-            {"sh", "-c", "free | awk '/^Mem/ { a=(($3)/$2 * 100); print a }'"},
+            {"sh", "-c", "free | awk '/^Mem/ { a=(($3)/$2 * 100); print int(a)\"%\" }'"},
             function(out)
-                ram_widget:set_value(out)
+                ram_widget.ram_percent.text = out
             end
         )
     end
