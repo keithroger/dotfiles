@@ -57,7 +57,7 @@ map('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.g.markdown_fenced_languages = {
   "ts=typescript",
 }
-local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls' }
+local servers = { 'gopls', 'golangci_lint_ls', 'pylsp', 'bashls', 'sumneko_lua'}
 for _, lsp in ipairs(servers) do
   require'lspconfig'[lsp].setup {
     flags = {
