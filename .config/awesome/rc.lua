@@ -15,6 +15,8 @@ local battery_widget = require("widgets.battery")
 local ram_widget = require("widgets.ram_widget")
 -- cpu
 local cpu_widget = require("widgets.cpu_widget")
+-- spotify
+local spotify = require("widgets.spotify")
 
 -- Standard awesome library
 local gears = require("gears")
@@ -227,7 +229,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.container.place,
             halign = "center",
-            mytextclock,
+            spotify,
         },
         -- s.mytasklist, -- Middle widget
         { -- Right widgets
@@ -237,6 +239,7 @@ awful.screen.connect_for_each_screen(function(s)
             cpu_widget,
             ram_widget,
             battery_widget,
+            mytextclock,
             wibox.widget.systray(),
             -- mytextclock,
             -- s.mylayoutbox,
