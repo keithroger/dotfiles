@@ -331,7 +331,7 @@ globalkeys = gears.table.join(
               {description = "Lower Volume", group = "sound"}),
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5%+", false) end,
               {description = "Raise Volume", group = "sound"}),
-    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle", false) end,
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer set Master toggle", false) end,
               {description = "Mute Volume", group = "sound"}),
     awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("xbacklight -dec 5", false) end,
               {desciprtion = "Lower Brightness", group = "sound"}),
