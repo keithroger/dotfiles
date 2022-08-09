@@ -10,9 +10,17 @@
 " nnoremap <M-l>    :vertical resize +2<CR>
 "
 " " I hate escape more than anything else
-inoremap jk <Esc>
+" inoremap jk <Esc>
 " inoremap kj <Esc>
-"
+
+"" Tab navigation like Firefox.
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-h> <Esc>:tabprevious<CR>i
+inoremap <C-l>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+
 " " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
 " nnoremap <c-u> viwU<Esc>
@@ -36,10 +44,10 @@ inoremap jk <Esc>
 " vnoremap > >gv
 "
 " " Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-l> <C-w>l
 " nnoremap <Leader>o o<Esc>^Da
 " nnoremap <Leader>O O<Esc>^Da
 
